@@ -12,7 +12,7 @@ const MultiSelectOptions = ({
   filteredOptions,
   onAdd,
 }: Props) => {
-  const ref = useRef<HTMLDivElement[]>(new Array());
+  const ref = useRef<HTMLDivElement[]>([]);
   useEffect(() => {
     ref.current[focusedIndex]?.scrollIntoView({
       behavior: "auto",
@@ -28,7 +28,7 @@ const MultiSelectOptions = ({
             ref={(ele: any) => ref.current.push(ele)}
             onMouseDown={(e) => e.preventDefault()}
             className={`text-sm whitespace-nowrap p-2 hover:bg-gray-100 flex items-center justify-between cursor-pointer ${
-              focusedIndex == i ? "bg-gray-100" : ""
+              focusedIndex === i ? "bg-gray-100" : ""
             }`}
             key={option.id}
             onClick={() => onAdd(option)}

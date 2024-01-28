@@ -3,7 +3,7 @@ import MultiSelect from './multi-select/MultiSelect';
 
 function App() {
   return (
-    <div className="App">
+    <div className="min-h-screen bg-gray-200">
       <MultiSelect/>
     </div>
   );

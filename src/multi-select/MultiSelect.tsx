@@ -49,15 +49,17 @@ const MultiSelect = () => {
     setSelectedOptions(removeFromSelected);
     setOptions([...options, option]);
     setShowList(false);
+    setSearchText("")
   };
   const keyPressNavigation = (e: React.KeyboardEvent) => {
-    e.preventDefault();
     switch (e.key) {
       case "ArrowUp":
         onArrowUp();
+        e.preventDefault();
         return true;
       case "ArrowDown":
         onArrowDown();
+        e.preventDefault();
         return true;
       case "Enter":
         onEnter();
@@ -136,6 +138,7 @@ const MultiSelect = () => {
             placeholder="serach"
             onChange={inputTextUpdate}
             onKeyDown={keyPressNavigation}
+            value={searchText}
           />
         </div>
 

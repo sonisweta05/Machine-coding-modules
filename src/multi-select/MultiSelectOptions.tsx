@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Option } from "../../types";
+import { Option } from "./types";
 
 type Props = {
   focusedIndex: number;

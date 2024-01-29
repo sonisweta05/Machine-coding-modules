@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import MultiSelectOptions from "./MultiSelectOptions";
-import { people } from "../data";
-import { Option } from "../../types";
+import { people } from "./data";
+import { Option } from "./types";
 
 const MultiSelect = () => {
   const [options, setOptions] = useState<Option[]>(people);

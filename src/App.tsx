@@ -1,10 +1,12 @@
 import './App.css';
 import MultiSelect from './multi-select/MultiSelect';
+import Notes from './notes/Notes';
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-200">
-      <MultiSelect/>
+      {/* <MultiSelect/> */}
+      <Notes/>
     </div>
   );
 }

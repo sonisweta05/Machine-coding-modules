@@ -1,3 +1,4 @@
+import AddModal from "./AddModal";
 import { INotes } from "./types/model";
 import { getCurrentDate } from "./utils/date";
 
@@ -8,7 +9,8 @@ const Notes = () => {
   ];
   
   return (
-    <div className="flex p-5 gap-5">
+    <div className="bg-blue-300 min-h-screen flex p-5 gap-5 relative">
+      <AddModal/>
       {notes.map(({ title, description }) => {
         return (
           <div

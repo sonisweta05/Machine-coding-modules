@@ -9,18 +9,24 @@ const notesList: INotes[] = [
 const Notes = () => {
   const [notes, setNotes] = useState(notesList);
   const onAddNotes = ({ addTitle, addDesc }: any) => {
+    setNotes([
+      ...notes,
+      {
+        date: new Date(),
+        title: addTitle,
+        description: addDesc,
+      },
+    ]);
+  };
 
-    setNotes(
-      [...notes, {
-      date: new Date(),
-      title: addTitle,
-      description: addDesc,
-    }]);
+  const onDelete = (date: Date | number) => {
+    const filteredArray = notes.filter((note) => note.date !== date);
+    setNotes(filteredArray);
   };
   return (
     <div className="bg-blue-300 min-h-screen flex p-5 gap-5 relative">
       <AddModal onAddNotes={onAddNotes} />
-      {notes.map(({ title, description }) => {
+      {notes.map(({ date, title, description }) => {
         return (
           <div
             key={title}
@@ -32,7 +38,9 @@ const Notes = () => {
             </div>
             <div className="flex justify-between">
               <p className="">{getCurrentDate()}</p>
-              <p className="cursor-pointer flex flex-col text-sm"></p>
+              <div className="cursor-pointer flex flex-col text-sm">
+                <button onClick={() => onDelete(date)}>Delete</button>
+              </div>
             </div>
           </div>
         );

@@ -1,16 +1,25 @@
-import AddModal from "./AddModal";
+import AddModal from "./Modal";
 import { INotes } from "./types/model";
 import { getCurrentDate } from "./utils/date";
-
+import { useState } from "react";
+const notesList: INotes[] = [
+  { date: 1, title: "First note", description: "here is my first note" },
+  { date: 2, title: "Second note", description: "come to my second note" },
+];
 const Notes = () => {
-  const notes: INotes[] = [
-    { title: "First note", description: "here is my first note" },
-    { title: "Second note", description: "come to my second note" },
-  ];
-  
+  const [notes, setNotes] = useState(notesList);
+  const onAddNotes = ({ addTitle, addDesc }: any) => {
+
+    setNotes(
+      [...notes, {
+      date: new Date(),
+      title: addTitle,
+      description: addDesc,
+    }]);
+  };
   return (
     <div className="bg-blue-300 min-h-screen flex p-5 gap-5 relative">
-      <AddModal/>
+      <AddModal onAddNotes={onAddNotes} />
       {notes.map(({ title, description }) => {
         return (
           <div
@@ -23,7 +32,7 @@ const Notes = () => {
             </div>
             <div className="flex justify-between">
               <p className="">{getCurrentDate()}</p>
-              <p className="cursor-pointer">...</p>
+              <p className="cursor-pointer flex flex-col text-sm"></p>
             </div>
           </div>
         );

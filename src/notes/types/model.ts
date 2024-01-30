@@ -1,4 +1,5 @@
 export interface INotes {
-    title: string;
-    description: string;
-  };
+  date: number | Date;
+  title: string;
+  description: string;
+}

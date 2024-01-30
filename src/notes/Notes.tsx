@@ -8,6 +8,8 @@ const notesList: INotes[] = [
 ];
 const Notes = () => {
   const [notes, setNotes] = useState(notesList);
+  const [showModal, setShowModal] = useState(false);
+
   const onAddNotes = ({ addTitle, addDesc }: any) => {
     setNotes([
       ...notes,
@@ -17,15 +19,27 @@ const Notes = () => {
         description: addDesc,
       },
     ]);
+    setShowModal(false);
   };
 
   const onDelete = (date: Date | number) => {
     const filteredArray = notes.filter((note) => note.date !== date);
     setNotes(filteredArray);
   };
+
   return (
     <div className="bg-blue-300 min-h-screen flex p-5 gap-5 relative">
-      <AddModal onAddNotes={onAddNotes} />
+      <div className="cursor-pointer flex items-center justify-center border border-gray-100 h-40 w-60 bg-white rounded-lg">
+        <div
+          onClick={() => setShowModal(true)}
+          className="flex items-center justify-center text-7xl text-blue-300 border-2 border-dashed border-blue-300 w-[110px] h-[110px] bg-white rounded-full"
+        >
+          <span>+</span>
+        </div>
+      </div>
+      {showModal && (
+        <AddModal setShowModal={setShowModal} onAddNotes={onAddNotes} />
+      )}
       {notes.map(({ date, title, description }) => {
         return (
           <div

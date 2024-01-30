@@ -1,10 +1,10 @@
 import { ChangeEvent, useState } from "react";
-import { INotes } from "./types/model";
 
 type props = {
   onAddNotes: ({ addId, addTitle, addDesc }: any) => void;
+  setShowModal:(val:boolean) => void;
 };
-const AddModal = ({ onAddNotes }: props) => {
+const AddModal = ({ onAddNotes, setShowModal }: props) => {
   const [addTitle, setAddTitle] = useState("");
   const [addDesc, setAddDesc] = useState("");
 
@@ -19,7 +19,7 @@ const AddModal = ({ onAddNotes }: props) => {
     <div className=" flex flex-col border bg-white rounded-lg md:w-[25vw] w-[50vw] divide-y divide-slate-200 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-1">
       <div className="flex gap-9 justify-between text-xl p-4">
         <h3 className="font-bold font-sans ">Add a New Note</h3>
-        <button className="mr-2">x</button>
+        <button onClick={() => setShowModal(false)} className="mr-2">x</button>
       </div>
       <form className="p-4">
         <div className="flex flex-col text-lg">

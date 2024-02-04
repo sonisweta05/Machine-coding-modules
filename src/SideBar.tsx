@@ -19,6 +19,9 @@ const SideBar = () => {
           <li>
             <Link to="/notes">Notes</Link>
           </li>
+          <li>
+            <Link to="/food/home">Food-Buddy</Link>
+          </li>
         </ul>
       </section>
     </aside>

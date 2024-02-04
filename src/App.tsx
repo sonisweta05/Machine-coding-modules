@@ -1,10 +1,15 @@
 import "./App.css";
 import Home from "./Home Page/Home";
+import FoodHome from "./food-buddy/componentsFood/Home";
+import FoodAbout from "./food-buddy/componentsFood/About";
+import FoodCart from "./food-buddy/componentsFood/Cart";
 import SideBar from "./SideBar";
 import MultiSelect from "./multi-select/MultiSelect";
 import Notes from "./notes/Notes";
 import Error from "./common/ErrorPage/Error";
 import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
+import FoodBuddy from "./food-buddy/FoodBuddy";
+import FoodSearch from "./food-buddy/componentsFood/Search";
 
 function App() {
   return (
@@ -16,6 +21,12 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/multi-select" element={<MultiSelect />}></Route>
             <Route path="/notes" element={<Notes />}></Route>
+            <Route path="/food" element={<FoodBuddy />}>
+              <Route path="home" element={<FoodHome />}></Route>
+              <Route path="search" element={<FoodSearch />}></Route>
+              <Route path="about" element={<FoodAbout />}></Route>
+              <Route path="cart" element={<FoodCart />}></Route>
+            </Route>
             <Route path="*" element={<Error />}></Route>
           </Routes>
         </Main>

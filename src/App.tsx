@@ -1,22 +1,22 @@
 import "./App.css";
 import Home from "./Home Page/Home";
-import FoodHome from "./food-buddy/componentsFood/Home";
-import FoodAbout from "./food-buddy/componentsFood/About";
-import FoodCart from "./food-buddy/componentsFood/Cart";
+import FoodHome from "./food-buddy/Pages/Home";
+import FoodAbout from "./food-buddy/Pages/About";
+import FoodCart from "./food-buddy/Pages/Cart";
 import SideBar from "./SideBar";
 import MultiSelect from "./multi-select/MultiSelect";
 import Notes from "./notes/Notes";
 import Error from "./common/ErrorPage/Error";
 import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
-import FoodBuddy from "./food-buddy/FoodBuddy";
-import FoodSearch from "./food-buddy/componentsFood/Search";
+import FoodBuddy from "./food-buddy/componentsFood/FoodBuddy";
+import FoodSearch from "./food-buddy/Pages/Search";
 
 function App() {
   return (
     <>
       <div className="min-h-screen bg-gray-200">
         <Main>
-          <SideBar />
+          {/* <SideBar /> */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/multi-select" element={<MultiSelect />}></Route>

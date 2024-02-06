@@ -26,6 +26,7 @@ const NavLinks = ({ classname }: Props) => {
       {NavButtons.map((menu) => {
         return (
           <NavLink
+          key={menu.label}
             to={`/food/${menu.label.toLowerCase()}`}
             className={({ isActive }) => {
               return isActive

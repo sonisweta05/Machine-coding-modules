@@ -17,8 +17,6 @@ const Notes = () => {
   });
 
   const onAddNotes = (note: INotes) => {
-    console.log(note);
-    
     setNotes([...notes,note]);
     setShowModal(false);
   };

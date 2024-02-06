@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../../Logo.jpg";
-import NavLink from "../NavLink";
+import NavLink from "../componentsFood/NavLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBurger, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const Header = () => {
   };
   return (
     <>
-      <div className="relative p-2 md:px-2 px-10 flex items-center justify-between bg-white h-22">
+      <div className="relative z-10 p-2 md:px-2 px-10 flex items-center justify-between bg-white h-22">
         <div className="flex gap-2 ">
           <Link to="/food/home">
             <img src={Logo} alt="appLogo" className="h-[80px]" />
@@ -36,7 +36,7 @@ const Header = () => {
         </button>
       </div>
       {isOpen && (
-          <NavLink classname="flex flex-wrap flex-col  h-60 shadow-lg rounded-lg m-auto gap-2 top-28 justify-center overflow-hidden md:hidden text-lg left-0 right-0 items-center absolute bg-gray-500 backdrop-filter backdrop-blur-sm z-999 bg-opacity-20" />
+          <NavLink classname="flex flex-wrap flex-col w-11/12 h-60 shadow-lg rounded-lg m-auto gap-2 top-28 justify-center overflow-hidden md:hidden text-lg left-0 right-0 items-center absolute bg-gray-500 backdrop-filter backdrop-blur-sm bg-opacity-20 z-10" />
       )}
     </>
   );

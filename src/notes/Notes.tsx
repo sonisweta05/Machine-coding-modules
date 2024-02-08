@@ -17,7 +17,7 @@ const Notes = () => {
   });
 
   const onAddNotes = (note: INotes) => {
-    setNotes([...notes,note]);
+    setNotes([...notes, note]);
     setShowModal(false);
   };
 
@@ -83,14 +83,14 @@ const Notes = () => {
           >
             <div>
               <h1 className="text-xl font-serif">{title}</h1>
-              <p className="text-wrap truncate h-[100px]">
-                {description}
-              </p>
+              <p className="text-wrap truncate h-[100px]">{description}</p>
             </div>
             <div className="flex justify-between ">
               <p className="">{getCurrentDate()}</p>
               <div className="cursor-pointer flex flex-col text-sm">
-                <button onClick={() => onEditBtnClick({ date, title, description })}>
+                <button
+                  onClick={() => onEditBtnClick({ date, title, description })}
+                >
                   Edit
                 </button>
                 <button onClick={() => onDelete(date as Date)}>Delete</button>

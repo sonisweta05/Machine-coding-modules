@@ -2,6 +2,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
 import { CARD_URL } from "../constants";
+import CircularBtn from "./CircularBtn";
 
 const Carousel = ({ carouselCards }: any) => {
   const carouselRef = useRef<any>(null);
@@ -44,20 +45,16 @@ const Carousel = ({ carouselCards }: any) => {
           <h3 className="font-bold text-lg pl-4">What's on your Mind?</h3>
         </div>
         <div className="flex gap-5 ">
-          <button
-            className="bg-black h-10 w-10 text-white cursor-pointer hover:scale-90 rounded-full drop-shadow-xl active:scale-105 focus:ring-4 ring-yellow-300 disabled:opacity-25 disabled:cursor-not-allowed"
+          <CircularBtn
             onClick={onPrev}
             disabled={currentIndex === 0}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </button>
-          <button
+            icon={faArrowLeft}
+          ></CircularBtn>
+          <CircularBtn
             onClick={onNext}
             disabled={currentIndex > maxIndex}
-            className="bg-black h-10 w-10 text-white cursor-pointer hover:scale-90 rounded-full drop-shadow-xl active:scale-105 focus:ring-4 ring-yellow-300 disabled:opacity-25 disabled:cursor-not-allowed"
-          >
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+            icon={faArrowRight}
+          ></CircularBtn>
         </div>
       </div>
       <div className="w-full relative h-64 overflow-hidden">

@@ -1,16 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RESCARD_IMG_URL } from "../constants";
 import { faCircle, faStar } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = ({
+  id,
   name,
   cloudinaryImageId,
   cuisines,
   avgRating,
   sla,
 }: any) => {
+  
   return (
-    <div className=" flex flex-col flex-wrap hover:scale-90 transition-transform duration-300 cursor-pointer ">
+    <Link to={`/food/restaurant-menu/${id}`}>
+    <div className=" flex flex-col flex-wrap hover:scale-90 transition-transform duration-300 cursor-pointer mt-2">
       <div className="w-[288px] h-40 rounded-xl shadow-lg">
         <img
           alt="resCardImg"
@@ -31,6 +35,7 @@ const RestaurantCard = ({
         <div className="text text-wrap w-[250px]">{cuisines.join(", ")}</div>
       </div>
     </div>
+    </Link>
   );
 };
 

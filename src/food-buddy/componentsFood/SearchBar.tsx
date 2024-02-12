@@ -2,14 +2,22 @@ import { faBolt, faSeedling, faStar } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
 type Props = {
-  onSearchFilter:(val:string)=>void
-  searchText:string
-  setSearchText:(val:string)=>void
+  onSearchFilter: (val: string) => void;
+  searchText: string;
+  setSearchText: (val: string) => void;
+  onTopRatedFilter?: (val: string) => void;
+  onVegFilter?: (val: string) => void;
+  onDeliveryTimeFilter?: (val: string) => void;
 };
 
-
-
-const SearchBar = ({ onSearchFilter, searchText, setSearchText }: Props) => {
+const SearchBar = ({
+  onSearchFilter,
+  searchText,
+  setSearchText,
+  onTopRatedFilter,
+  onVegFilter,
+  onDeliveryTimeFilter,
+}: any) => {
   const handleEnter = (e: any) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -35,9 +43,21 @@ const SearchBar = ({ onSearchFilter, searchText, setSearchText }: Props) => {
           />
         </div>
         <div className="flex flex-nowrap ml-2 mt-2 gap-4">
-          <Button btnIcon={faStar} btnText="Top Rated" />
-          <Button btnIcon={faBolt} btnText="Delivery Time" />
-          <Button btnIcon={faSeedling} btnText="Veg" />
+          <Button
+            onClick={onTopRatedFilter}
+            btnIcon={faStar}
+            btnText="Top Rated"
+          />
+          <Button
+            onClick={onDeliveryTimeFilter}
+            btnIcon={faBolt}
+            btnText="Delivery Time"
+          />
+          <Button
+            onClick={onVegFilter}
+            btnIcon={faSeedling}
+            btnText="Veg"
+          />
         </div>
       </div>
     </div>

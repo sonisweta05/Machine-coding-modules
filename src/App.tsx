@@ -10,6 +10,8 @@ import Error from "./common/ErrorPage/Error";
 import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
 import FoodBuddy from "./food-buddy/componentsFood/FoodBuddy";
 import FoodSearch from "./food-buddy/Pages/Search";
+import RestaurantMenuHeader from "./food-buddy/componentsFood/RestaurantMenuHeader";
+import RestaurantMenu from "./food-buddy/componentsFood/RestaurantMenu";
 
 function App() {
   return (
@@ -26,7 +28,9 @@ function App() {
               <Route path="search" element={<FoodSearch />}></Route>
               <Route path="about" element={<FoodAbout />}></Route>
               <Route path="cart" element={<FoodCart />}></Route>
+              <Route path="restaurant-menu/:resId" element={<RestaurantMenu />}></Route>
             </Route>
+            <Route path="countryGame">{}</Route>
             <Route path="*" element={<Error />}></Route>
           </Routes>
         </Main>

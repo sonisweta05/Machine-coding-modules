@@ -13,7 +13,7 @@ const Home = () => {
   const getRestaurants = async () => {
     const data = await fetch(API_URL);
     const apiResult = await data.json();
-
+    
     const APICall =
       apiResult?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
@@ -38,8 +38,27 @@ const Home = () => {
     setFilteredRestaurants(filterRestaurants);
   };
 
+  const onTopRatedFilter = () => {
+    const topRated = allRestaurants.filter(
+      (restaurant) => restaurant.info.avgRating > 4
+    );
+    setFilteredRestaurants(topRated);
+  };
+  const onVegFilter = () => {
+    const veg = allRestaurants.filter(
+      (restaurant) => restaurant.info.veg === true
+    );
+    setFilteredRestaurants(veg);
+  };
+  const onDeliveryTimeFilter = () => {
+    const deliveryTime = allRestaurants.filter(
+      (restaurant) => restaurant.info.sla.deliveryTime < 30
+    );
+    setFilteredRestaurants(deliveryTime);
+  };
+
   return (
-    <div className="w-11/12 min-h-[80vh] flex items-center flex-col select-none pt-2">
+    <div className="md:pl-[20px] md:pr-[20px]  min-h-[80vh] flex items-center justify-center flex-col select-none pt-2">
       {allRestaurants.length === 0 ? (
         <ShimmerUI />
       ) : (
@@ -49,6 +68,9 @@ const Home = () => {
             onSearchFilter={onSearchFilter}
             searchText={searchText}
             setSearchText={setSearchText}
+            onTopRatedFilter={onTopRatedFilter}
+            onVegFilter={onVegFilter}
+            onDeliveryTimeFilter={onDeliveryTimeFilter}
           />
           <RestaurantsList restaurants={filteredRestaurants} />
         </>

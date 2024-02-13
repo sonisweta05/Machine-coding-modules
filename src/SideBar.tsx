@@ -22,6 +22,9 @@ const SideBar = () => {
           <li>
             <Link to="/food/home">Food-Buddy</Link>
           </li>
+          <li>
+            <Link to="/countryGame">Country Game</Link>
+          </li>
         </ul>
       </section>
     </aside>

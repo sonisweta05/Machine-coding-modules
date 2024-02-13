@@ -7,7 +7,7 @@ const notesList: INotes[] = [
   { date: 2, title: "Second note", description: "come to my second note" },
 ];
 const Notes = () => {
-  const [notes, setNotes] = useState(notesList);
+  const [notes, setNotes] = useState(notesList); 
   const [showModal, setShowModal] = useState(false);
   const [isAddForm, setIsAddForm] = useState(true);
   const [addOrEditNote, setAddOrEditNote] = useState<INotes>({

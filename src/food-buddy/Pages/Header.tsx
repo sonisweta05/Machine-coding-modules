@@ -23,7 +23,7 @@ const Header = () => {
             <h6 className="text-sm font-RobotoCondenced">by Sweta & Shubham</h6>
           </div>
         </div>
-        <div className="hidden md:flex">
+        <div className="hidden md:flex pr-4">
           <NavLink classname="text-black flex items-center justify-between py-5 gap-5 text-lg font-semibold" />
         </div>
         <button

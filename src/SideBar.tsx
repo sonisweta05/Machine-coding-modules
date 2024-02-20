@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
+  const [showSidebar, setShowSidebar] = useState(true);
   return (
-    <aside className="md:p-5 p-1 h-[100vh] w-[25vw] bg-slate-500 text-white min-h-screen float-left">
+    <aside className="md:p-5 p-1 h-[100vh] w-[20vw] bg-slate-500 text-white min-h-screen float-left">
       <section className="flex justify-center pb-5">
         Welcome to Sweta's Projects
       </section>
